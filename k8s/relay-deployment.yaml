@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: relay-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      component: web
+  template:
+    metadata:
+      labels:
+        component: web
+    spec:
+      containers:
+        - name: relay
+          image: launchdarkly/ld-relay
+          ports:
+            - containerPort: 5000
+          env:
+            - name: USE_REDIS
+              value: 'true'
+            - name: REDIS_HOST
+              value: redis-cluster-ip-service
+            - name: ENV_DATASTORE_PREFIX
+              value: ld-flags-$CID
+            - name: LOG_LEVEL
+              value: debug
+            - name: TEST
+              value: ok
+            - name: AUTO_CONFIG_KEY
+              value: rel-b0f30820-02d0-4c8c-82a2-1e911daedea1
