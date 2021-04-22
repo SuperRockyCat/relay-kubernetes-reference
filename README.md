@@ -14,7 +14,7 @@ This repository provides a set of configuration files that allow you to run the 
 In the Terminal:
 
 - `git clone https://github.com/SuperRockyCat/relay-kubernetes-reference && cd relay-kubernetes-reference`
-- `minikube create`
+- `minikube create --driver=hyperkit`
 - `minicube addons enable ingress`
 - `kubectl apply -f k8s`
 
