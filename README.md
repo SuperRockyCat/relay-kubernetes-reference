@@ -30,11 +30,12 @@ _All definitions cited from https://kubernetes.io/docs/reference/glossary. Paren
 
 - **Container:** A lightweight and portable executable image that contains software and all of its dependencies.
 - **Cluster:** A set of worker machines, called nodes, that run containerized applications. Every cluster has at least one worker node.
+- **Deployment:** An API object that manages a replicated application, typically by running Pods with no local state.
 - **Node:** A worker machine in Kubernetes. (Could be a VM or Physical hardware)
+- **Object:** An entity in the Kubernetes system. The Kubernetes API uses these entities to represent the state of your cluster.
 - **Pod:** The smallest and simplest Kubernetes object. A Pod represents a set of running containers on your cluster. (Pods are generally only run one container, except in cases where there is a hard dependency between two containers- e.g. a frontend app and its logging mechanism)
 - **Service:** An abstract way to expose an application running on a set of Pods as a network service.
-- **Deployment:** An API object that manages a replicated application, typically by running Pods with no local state.
-- **Object:** An entity in the Kubernetes system. The Kubernetes API uses these entities to represent the state of your cluster.
+
 
 ## Project Overview
 
