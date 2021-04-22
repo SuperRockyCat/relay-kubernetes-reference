@@ -80,11 +80,13 @@ spec:
 - The `apiVersion` field determines which Kubernetes API should be used when applying this configuration to an object. Pod configurations use the `apps/v1` api, however you will notice the `apiVersion` changes dependent on the object being configured. When in doubt, just Google the object `kind` + yaml + Kubernetes, and you should find the relevant doc explaining teh object's use.
 - The `kind` field determines what object the configuration is creating
 - The `metadata` field has a somewhat obvious use. In this case, we are only adding a name for our Pod.
-- The `spec` field is where the pod specifications are determined. This contains information like the number of pod `replicas`, additional `metadata` like `labels` which are used to connect Services to pods (discussed later), as well as the configuration of the `container` deployed within that pod. At the bottom of the config, you can see what port we've assigned to the Relay Proxy, as well as the environment variables used to configure the relay proxy nested within the `env` fied.
+- The `spec` field is where the pod specifications are determined. This contains information like the number of pod `replicas`, additional `metadata` like `labels` which are used to connect Services to pods (discussed later), as well as the configuration of the `container` deployed within that pod. At the bottom of the config, you can see what port we've assigned to the Relay Proxy, as well as the environment variables used to configure the relay proxy nested within the `env` field.
+
+[More Reading on Services](https://kubernetes.io/docs/concepts/workloads/controllers/)
 
 ------
 
-The other configs in the `k8s` create objects called Services and something called an Ingress.
+The other configs in the `k8s` directory create objects called Services and something called an Ingress.
 
 **Services** are used to network pods within a cluster. Each deployment object has an associated Service which tells Kubernetes to expose all pods of a certain type (the `component` field nested in the `selector`) on a given port. This makes it easy for pods to communicate with one another, as you can see in the `relay-deployment.yaml` all that's required to point Relay at our Redis instance is to provide the name of the associated service: 
 
@@ -93,5 +95,10 @@ The other configs in the `k8s` create objects called Services and something call
     value: redis-cluster-ip-service
 ```
 
+[More reading on Services](https://kubernetes.io/docs/concepts/services-networking/service/)
+
+------
+
 An  **Ingress** is used to expose the Services within the cluster to the outside world. In this case, we are using an nginx based ingress called ingress-nginx. The Ingress config in this instance only needs to expose the relay service to the outside world, but as you can imagine the Ingress config can grow in complexity as the cluster does. The Ingress also does something different depending on the cloud provider it's deployed to. In some cases it spins up physical load balancer hardware with the relevant ingress config, in other is configues an application load balancer. This adds complexity when deploying to production.
 
+[More reading on Ingresses](https://kubernetes.io/docs/concepts/services-networking/ingress/)
