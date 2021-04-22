@@ -103,3 +103,17 @@ The other configs in the `k8s` directory create objects called Services and some
 An  **Ingress** is used to expose the Services within the cluster to the outside world. In this case, we are using an nginx based ingress called ingress-nginx. The Ingress config in this instance only needs to expose the relay service to the outside world, but as you can imagine the Ingress config can grow in complexity as the cluster does. The Ingress also does something different depending on the cloud provider it's deployed to. In some cases it spins up physical load balancer hardware with the relevant ingress config, in other is configues an application load balancer. This adds complexity when deploying to production.
 
 [More reading on Ingresses](https://kubernetes.io/docs/concepts/services-networking/ingress/)
+
+## Useful Commands
+
+| Command| Use |
+|--------|-----|
+|`minikube ip`| Returns IP address of the cluster. Use this IP address as your `baseURI` for your LD client setup.|
+|`minikube stop`/`start`| Stops/starts Minikube cluster |
+|`minikube delete`| Deletes Minikube cluster. Sometimes necessary if Pod configs don't seem to be applied|
+|`kubectl get pods`/`services`/`deployments`| Returns the status of the given objects.|
+|`kubectl logs {pod_id}` | Returns logs for given pod id (pod IDs are returned by `kubectl get pods`)|
+|`kubectl attach {pod_id} -i`| Attaches an interactive shell to a running pod. Useful for troubleshooting Relay/Redis instances.|
+|`eval $(minkube docker-env)`| Attaches your Docker instance to your minikube node and allows you to use the docker CLI to interact with your Kubernetes pods |
+|`docker ps`| Shows running Docker containers |
+|`docker exec -it {container ID} sh` | Attaches a shell to a running docker container. Basically the Docker equivalent of `kubectl attach`|
