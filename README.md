@@ -117,3 +117,7 @@ An  **Ingress** is used to expose the Services within the cluster to the outside
 |`eval $(minkube docker-env)`| Attaches your Docker instance to your minikube node and allows you to use the docker CLI to interact with your Kubernetes pods |
 |`docker ps`| Shows running Docker containers |
 |`docker exec -it {container ID} sh` | Attaches a shell to a running docker container. Basically the Docker equivalent of `kubectl attach`|
+
+- [Kubectl commands cheatsheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
+- [Minikube cheatsheet (unofficial)](https://www.docker.com/sites/default/files/d8/2019-09/docker-cheat-sheet.pdf)
+- [Docker cheatsheet](https://www.docker.com/sites/default/files/d8/2019-09/docker-cheat-sheet.pdf)
