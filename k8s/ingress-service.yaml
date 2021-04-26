@@ -11,5 +11,5 @@ spec:
       - path: /
         pathType: Prefix
         backend:
-          serviceName: relay-deployment-cluster-ip-service
+          serviceName: relay-cluster-ip-service
           servicePort: 5000

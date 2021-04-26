@@ -110,9 +110,10 @@ An  **Ingress** is used to expose the Services within the cluster to the outside
 |--------|-----|
 |`minikube ip`| Returns IP address of the cluster. Use this IP address as your `baseURI` for your LD client setup.|
 |`minikube stop`/`start`| Stops/starts Minikube cluster |
-|`minikube delete`| Deletes Minikube cluster. Sometimes necessary if Pod configs don't seem to be applied|
+|`minikube delete`| Deletes Minikube cluster. Sometimes necessary if Pod configs don't seem to be applied.|
 |`kubectl get pods`/`services`/`deployments`| Returns the status of the given objects.|
-|`kubectl logs {pod_id}` | Returns logs for given pod id (pod IDs are returned by `kubectl get pods`)|
+|`kubectl describe pod/{pod_id}`| Returns config information for given pod ID.|
+|`kubectl logs {pod_id}` | Returns logs for given pod id (pod IDs are returned by `kubectl get pods`).|
 |`kubectl attach {pod_id} -i`| Attaches an interactive shell to a running pod. Useful for troubleshooting Relay/Redis instances.|
 |`eval $(minkube docker-env)`| Attaches your Docker instance to your minikube node and allows you to use the docker CLI to interact with your Kubernetes pods |
 |`docker ps`| Shows running Docker containers |
