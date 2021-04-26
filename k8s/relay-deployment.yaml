@@ -16,7 +16,7 @@ spec:
         - name: relay
           image: launchdarkly/ld-relay
           ports:
-            - containerPort: 5000
+            - containerPort: 8030
           env:
             - name: USE_REDIS
               value: 'true'

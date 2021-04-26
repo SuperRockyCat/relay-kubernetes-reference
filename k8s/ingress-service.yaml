@@ -16,4 +16,4 @@ spec:
             # UPDATE THIS LINE ABOVE
             backend:
               serviceName: relay-cluster-ip-service
-              servicePort: 5000
+              servicePort: 8030
