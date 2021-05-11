@@ -15,7 +15,7 @@ In the Terminal:
 
 - `git clone https://github.com/SuperRockyCat/relay-kubernetes-reference && cd relay-kubernetes-reference`
 - `minikube start --driver=hyperkit`
-- `minicube addons enable ingress`
+- `minikube addons enable ingress`
 - `kubectl apply -f k8s`
 
 ## Kubernetes Basics
@@ -109,7 +109,7 @@ An  **Ingress** is used to expose the Services within the cluster to the outside
 | Command| Use |
 |--------|-----|
 |`minikube ip`| Returns IP address of the cluster. Use this IP address as your `baseURI` for your LD client setup.|
-|`minikube stop`/`start`| Stops/starts Minikube cluster |
+|`minikube stop`/`start`| Stops/starts Minikube cluster (to stop, `minikube stop --all`) |
 |`minikube delete`| Deletes Minikube cluster. Sometimes necessary if Pod configs don't seem to be applied.|
 |`kubectl get pods`/`services`/`deployments`| Returns the status of the given objects.|
 |`kubectl describe pod/{pod_id}`| Returns config information for given pod ID.|

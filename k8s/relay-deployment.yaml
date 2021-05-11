@@ -3,7 +3,7 @@ kind: Deployment
 metadata: 
   name: relay-deployment
 spec:
-  replicas: 3
+  replicas: 4
   selector:
     matchLabels:
       component: web
